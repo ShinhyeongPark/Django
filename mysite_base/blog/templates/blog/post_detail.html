@@ -1,0 +1,14 @@
+<h2>{{ object.title }}</h2>
+
+<p class="other_posts"></p>
+
+
+<p class="date">
+    {{ object.modify_date|date:"Y-m-d H:i A" }}
+</p>
+
+<br/>
+
+<div class="body">
+    {{ object.content|linebreaks}}
+</div>
