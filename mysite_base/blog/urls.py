@@ -10,7 +10,7 @@ urlpatterns = [
     # /blog/post
     path('post/', PostLV.as_view(), name='post_list'),
 
-    # /blog/post/{python-programming}
+    # /blog/post/{python-programming} #상세보기
     path('post/<str:slug>', PostDV.as_view(), name='post_detail'),
 
     # Example: /archive/
