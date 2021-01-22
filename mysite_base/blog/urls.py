@@ -5,18 +5,18 @@ app_name = 'blog'
 
 urlpatterns = [
     # /blog/
-    path('', PostLV.as_view(), name='post_list'),
+    path('', PostLV.as_view(), name='index'),
 
     # /blog/post
     path('post/', PostLV.as_view(), name='post_list'),
 
-    # /blog/post/{python-programming} #상세보기
+    # /blog/post/{slug}
     path('post/<str:slug>', PostDV.as_view(), name='post_detail'),
 
     # Example: /archive/
     path('archive/', PostAV.as_view(), name='post_archive'),
 
-    # Example: /2021/
+    # Example: /blog/2021/
     path('<int:year>/', PostYAV.as_view(), name='post_year_archive'),
 
     # Example: /2021/01/
