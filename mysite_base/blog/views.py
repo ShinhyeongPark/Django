@@ -3,6 +3,10 @@ from django.views.generic.dates import ArchiveIndexView, YearArchiveView
 from django.views.generic.dates import MonthArchiveView, DayArchiveView, TodayArchiveView
 from blog.models import Post
 
+from blog.forms import PostSearchForm
+from django.views.generic.edit import FormView
+from django.db.models import Q
+
 # Create your views here.
 class PostLV(ListView):
     model = Post
@@ -37,3 +41,7 @@ class PostTAV(TodayArchiveView):
     model = Post
     date_field = "modify_date"
     month_format = "%m"
+
+class SearchFormView(FormView):
+    form_class = PostSearchForm
+    template_name = "blog/post_search.html"
