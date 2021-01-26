@@ -13,7 +13,7 @@ class SportsscrapperSpider(scrapy.Spider):
     start_urls = [URL % start_page]
     
     def start_requests(self):
-        for i in range(2): # 0, 1 ~ 9 -> 1 ~ 10
+        for i in range(4): # 1 ~ 4
             yield Request(url=URL % (i + start_page), callback=self.parse)
 
     def parse(self, response):
