@@ -11,6 +11,6 @@ FEED_FORMAT = "csv"
 FEED_URI = "ECOnews.csv"
 FEED_EXPORT_ENCODING = 'utf-8-sig'
 
-#ITEM_PIPELINES = {
-#    'myscaper.pipelines.MyscaperPipeline': 300,
-#}
+ITEM_PIPELINES = {
+    'scrapper.pipelines.ScrapperPipeline': 100,
+}
