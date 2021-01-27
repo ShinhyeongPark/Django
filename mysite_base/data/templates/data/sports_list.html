@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %} Crawling List {% endblock %}
+
+{% block content %}
+<div id="content">
+	<h1>스포츠 뉴스</h1>
+	<ul>
+	{% for data in object_list %}
+		<li><a href="{% url 'data:sports_detail' data.id %}">{{ data }}</a></li>
+	{% endfor %}
+	</ul>
+</div> 
+{% endblock %}
