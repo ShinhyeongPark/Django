@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     'blog.apps.BlogConfig',
     'rest_framework',
     'api',
+    'data',
 ]
 
 REST_FRAMEWORK = {

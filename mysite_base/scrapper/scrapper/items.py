@@ -6,3 +6,4 @@ class ScrapperItem(scrapy.Item):
     writer = scrapy.Field()
     preview = scrapy.Field()
     crawled_time = scrapy.Field()
+

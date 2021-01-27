@@ -9,7 +9,7 @@ class SportsscrapperPipeline:
     def __init__(self):
         # DB 설정(자동 커밋)
         # isolation_level=None => Auto Commit
-        self.conn = sqlite3.connect('/Users/etlaou/Downloads/WebProgramming/mysite_base/news.db', isolation_level=None)
+        self.conn = sqlite3.connect('/Users/etlaou/Downloads/WebProgramming/mysite_base/db.sqlite3', isolation_level=None)
 
         # DB 연결
         self.c = self.conn.cursor()
@@ -17,7 +17,7 @@ class SportsscrapperPipeline:
     # 최초 1회 실행
     def open_spider(self, spider):
         spider.logger.info('NewsSpider Pipeline Started.')
-        self.c.execute("CREATE TABLE IF NOT EXISTS SPORTS_NEWS(id INTEGER PRIMARY KEY AUTOINCREMENT, title text, preview text, crawled_time text)")
+        self.c.execute("CREATE TABLE IF NOT EXISTS data_sports(id INTEGER PRIMARY KEY AUTOINCREMENT, title text, preview text, crawled_time text)")
 
     # Item 건수 별 실행
     def process_item(self, item, spider):
@@ -30,7 +30,7 @@ class SportsscrapperPipeline:
 
             # 데이터 -> DB 삽입
             # tuple(item[k] for k in item.keys()) 로 대신해도 된다.
-            self.c.execute('INSERT INTO SPORTS_NEWS(title,preview,crawled_time) VALUES(?, ?, ?);', (item.get('title'), item.get('preview'), item.get('crawled_time'))) # tuple(item[k] for k in item.keys())
+            self.c.execute('INSERT INTO data_sports(title,preview,crawled_time) VALUES(?, ?, ?);', (item.get('title'), item.get('preview'), item.get('crawled_time'))) # tuple(item[k] for k in item.keys())
 
             # 로그
             spider.logger.info('Item to DB inserted.')
