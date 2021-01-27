@@ -4,6 +4,11 @@
 {% block content %}
 <div id="content">
 	<h1>IT 뉴스</h1>
+	<form action="" method="POST">
+	{% csrf_token %}
+	<button type="submit" class="save btn btn-default">업데이트</button>
+	</form>
+
 	<ul>
 	{% for data in object_list %}
 		<li><a href="{% url 'data:it_detail' data.id %}">{{ data }}</a></li>
