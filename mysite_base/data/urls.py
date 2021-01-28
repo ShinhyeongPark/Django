@@ -3,12 +3,12 @@ from django.conf.urls import url
 
 from data.views import NewsSPORTSLV, NewsITLV, NewsECOLV
 from data.views import NewsSPORTSDV, NewsITDV, NewsECODV
-
+from data.views import NewsAll
 app_name = 'data'
 
 urlpatterns = [
     #data/
-    path('', NewsITLV.as_view(), name='index'),
+    path('', NewsAll.as_view(), name='index'),
     #data/it
     path('it/', NewsITLV.as_view(), name='it_list'),
     #data/eco
