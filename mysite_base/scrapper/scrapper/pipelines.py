@@ -17,7 +17,7 @@ class ScrapperPipeline:
     def open_spider(self, spider):
         spider.logger.info('NewsSpider Pipeline Started.')
         self.c.execute("CREATE TABLE IF NOT EXISTS data_eco(id INTEGER PRIMARY KEY AUTOINCREMENT, title text, preview text, writer text, crawled_time text)")
-
+        self.c.execute("DELETE FROM data_eco")
     # Item 건수 별 실행
     def process_item(self, item, spider):
         if not item.get('title') is None:
