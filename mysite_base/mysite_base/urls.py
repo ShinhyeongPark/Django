@@ -21,5 +21,5 @@ urlpatterns = [
     path('bookmark/', include('bookmark.urls', namespace='bookmark')),
     path('blog/', include('blog.urls', namespace='blog')),
     path('data/', include('data.urls', namespace='data')),
-    path('api/', include('api.urls', namespace='api'))
+    path('api/', include('api.urls', namespace='api')),
 ]
