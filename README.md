@@ -18,19 +18,19 @@
 ## Directory Tree
 ```
 .
-├── ITscrapper
-├── Sportsscrapper
-├── api
-├── blog
-├── bookmark
-├── data
-├── db.sqlite3
-├── manage.py
-├── mysite_base
-├── scrapper
-├── static
-├── templates
-└── venv
+├── ITscrapper 		#IT 뉴스 크롤링 봇
+├── Sportsscrapper 	#스포츠 뉴스 크롤링 봇
+├── api 			#크롤링 데이터 REST API
+├── blog 			#게시물
+├── bookmark 		#북마크
+├── data 			#크롤링 데이터 리스트
+├── db.sqlite3 		#Database
+├── manage.py		#Django 실행
+├── mysite_base 	#메인 화면
+├── scrapper 		#경제 뉴스 크롤링 봇
+├── static 			#CSS파일
+├── templates 		#HTML파일
+└── venv 			#가상머신
 ```
 
 ## Pip List
