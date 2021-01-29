@@ -35,12 +35,12 @@
 
 ## Pip List
 ```
-Python 					3.9.1
-Djanog(Framework) 		3.1.5
-Scrapy 					2.4.1
+Python 			3.9.1
+Djanog(Framework) 	3.1.5
+Scrapy 			2.4.1
 djangorestframework 	3.12.2
 setuptools          	49.2.1
-Database				sqlite
+Database		sqlite
 ```
 
 ## How to Run?
