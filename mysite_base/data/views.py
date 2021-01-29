@@ -3,6 +3,7 @@ from django.views.generic.dates import ArchiveIndexView, YearArchiveView
 from django.views.generic.dates import MonthArchiveView, DayArchiveView, TodayArchiveView
 from django.views.generic.edit import FormView
 from django import forms
+from django.http import HttpResponseRedirect
 from .forms import RefreshForm
 from django.db.models import Q
 from django.shortcuts import render, redirect
@@ -20,52 +21,46 @@ class NewsITLV(ListView):
     model = IT
     form_class = RefreshForm
     template_name = 'it_list.html'
+    success_url = '/data/it'
     
-    def form_valid(self, form):
-        print('suc')
-        return super(NewsITLV, self).form_valid(form)
-    # def form_valid()
+    def post(self,request):
+        if request.method == "POST":
+            form = RefreshForm(request.POST)
+            os.chdir('/Users/etlaou/Downloads/WebProgramming/mysite_base/ITscrapper')
+            os.system('scrapy crawl ITscrapper')
+            return HttpResponseRedirect('/data/it')
     
 class NewsITDV(DetailView):
     model = IT
     
 class NewsECOLV(ListView):
     model = ECO
+    form_class = RefreshForm
+    template_name = 'eco_litst.html'
+    success_url = '/data/eco'
 
+    def post(self,request):
+        if request.method == "POST":
+            form = RefreshForm(request.POST)
+            os.chdir('/Users/etlaou/Downloads/WebProgramming/mysite_base/scrapper')
+            os.system('scrapy crawl scrapper')
+            return HttpResponseRedirect('/data/eco')
+    
 class NewsECODV(DetailView):
     model = ECO
     
 class NewsSPORTSLV(ListView):
     model = SPORTS
+    form_class = RefreshForm
+    template_name = 'sports_list.html'
+    success_url = '/data/sports'
+
+    def post(self,request):
+        if request.method == "POST":
+            form = RefreshForm(request.POST)
+            os.chdir('/Users/etlaou/Downloads/WebProgramming/mysite_base/Sportsscrapper')
+            os.system('scrapy crawl Sportsscrapper')
+            return HttpResponseRedirect('/data/sports')
 
 class NewsSPORTSDV(DetailView):
     model = SPORTS
-
-class UpdateIT(FormView):
-    template_name = "data/it_list.html"
-    success_url = "data/it/"
-
-    def form_valid(self, form):
-        os.chdir('/Users/etlaou/Downloads/WebProgramming/mysite_base/ITscrapper')
-        os.system('scrapy crawl ITscrap1per')
-        return super().form_valid(form)
-
-
-class UpdateSPORTS(FormView):
-    template_name = "data/sports_list.html"
-    success_url = "data/sports_list.html"
-
-    def form_valid(self, form):
-        os.chdir('/Users/etlaou/Downloads/WebProgramming/mysite_base/Sportsscrapper')
-        os.system('scrapy crawl Sportsscrapper')
-        return super().form_valid(form)
-
-
-class UpdateECO(FormView):
-    template_name = "data/eco_list.html"
-    success_url = "data/eco_list.html"
-
-    def form_valid(self, form):
-        os.chdir('/Users/etlaou/Downloads/WebProgramming/mysite_base/scrapper')
-        os.system('scrapy crawl scrapper')
-        return super().form_valid(form)
