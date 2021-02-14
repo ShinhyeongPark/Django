@@ -26,7 +26,8 @@ class NewsITLV(ListView):
     def post(self,request):
         if request.method == "POST":
             form = RefreshForm(request.POST)
-            os.chdir('/Users/etlaou/Downloads/WebProgramming/mysite_base/ITscrapper')
+            # os.chdir('/Users/etlaou/Downloads/WebProgramming/mysite_base/ITscrapper')
+            os.chdir('/mydjango/ITscrapper')
             os.system('scrapy crawl ITscrapper')
             return HttpResponseRedirect('/data/it')
     
