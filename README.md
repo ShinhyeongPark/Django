@@ -76,6 +76,9 @@ http://localhost[PORT]/api/sports
 
 ## How to Use Docker Image
 ```
+#Push Image
 docker push orpsh1941/mydjango:tagname
+#Run Container
+docker run -d -p 8000:8000 --name mydjango mydjango:latest
 ```
 
