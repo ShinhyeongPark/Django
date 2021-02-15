@@ -43,7 +43,8 @@ class NewsECOLV(ListView):
     def post(self,request):
         if request.method == "POST":
             form = RefreshForm(request.POST)
-            os.chdir('/Users/etlaou/Downloads/WebProgramming/mysite_base/scrapper')
+            # os.chdir('/Users/etlaou/Downloads/WebProgramming/mysite_base/scrapper')
+            os.chdir('/mydjango/scrapper')
             os.system('scrapy crawl scrapper')
             return HttpResponseRedirect('/data/eco')
     
@@ -59,7 +60,8 @@ class NewsSPORTSLV(ListView):
     def post(self,request):
         if request.method == "POST":
             form = RefreshForm(request.POST)
-            os.chdir('/Users/etlaou/Downloads/WebProgramming/mysite_base/Sportsscrapper')
+            # os.chdir('/Users/etlaou/Downloads/WebProgramming/mysite_base/Sportsscrapper')
+            os.chdir('/mydjango/Sportsscrapper')
             os.system('scrapy crawl Sportsscrapper')
             return HttpResponseRedirect('/data/sports')
 

@@ -9,7 +9,7 @@ class SportsscrapperPipeline:
     def __init__(self):
         # DB 설정(자동 커밋)
         # isolation_level=None => Auto Commit
-        self.conn = sqlite3.connect('/Users/etlaou/Downloads/WebProgramming/mysite_base/db.sqlite3', isolation_level=None)
+        self.conn = sqlite3.connect('/mydjango/db.sqlite3', isolation_level=None)
 
         # DB 연결
         self.c = self.conn.cursor()
