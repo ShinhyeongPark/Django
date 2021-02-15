@@ -66,6 +66,37 @@ http://localhost[PORT]/api/eco
 http://localhost[PORT]/api/sports
 ```
 
+## How to Use Docker Image
+```
+#Push Image
+docker push orpsh1941/mydjango:tagname
+#Run Container
+docker run -d -p 8000:8000 --name mydjango mydjango:latest
+```
+
+## docker-compose yml
+> 장고 Application과 Server를 같은 네트워크로 연동
+```
+version: "3.9"
+services: 
+  my-mysql:
+    container_name: mysql_server
+    image: edowon0623/mymysql:1.2
+    ports: 
+      - 3306:3306
+  my-django:
+    container_name: django_server
+    image: edowon0623/mydjango
+    ports:
+      - 8000:8000
+    depends_on: 
+      - my-mysql
+    networks:
+      - my-network
+networks:
+  my-network:
+```
+
 ## Screen
 ### News: Main
 ![ex_screenshot](./img/main.png)
@@ -74,11 +105,4 @@ http://localhost[PORT]/api/sports
 ### News: ECO
 ![ex_screenshot](./img/eco.png)
 
-## How to Use Docker Image
-```
-#Push Image
-docker push orpsh1941/mydjango:tagname
-#Run Container
-docker run -d -p 8000:8000 --name mydjango mydjango:latest
-```
 
