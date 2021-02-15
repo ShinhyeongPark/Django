@@ -73,3 +73,12 @@ http://localhost[PORT]/api/sports
 ![ex_screenshot](./img/it.png)
 ### News: ECO
 ![ex_screenshot](./img/eco.png)
+
+## How to Use Docker Image
+```
+#Push Image
+docker push orpsh1941/mydjango:tagname
+#Run Container
+docker run -d -p 8000:8000 --name mydjango mydjango:latest
+```
+
