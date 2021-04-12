@@ -1,4 +1,10 @@
 # Django Web Project
+> 개인프로젝트
+
+## issue
+> - 왜 Flask가 아닌 Django를 선택했나?
+>   : 장고가 더 무겁지만 DB(MySQL), restframework를 사용하기 위해서
+>     또한 웹프레임워크에 익숙해지기 위한 프로젝트이므로 API서버를 구현하기 위해 선택
 
 ## Blog Web
 > 네이버 뉴스 데이터를 크롤링하여 리스트 형식으로 보여주고, 데이터 검색이 가능한 장고 웹 프로젝트  
@@ -54,16 +60,16 @@ python3 manage.py runserver
 ## API
 ```
 #게시물
-http://localhost[PORT]/api/posts
+GET http://localhost[PORT]/api/posts
 
 #IT 뉴스
-http://localhost[PORT]/api/it
+GET http://localhost[PORT]/api/it
 
 #경제 뉴스
-http://localhost[PORT]/api/eco
+GET http://localhost[PORT]/api/eco
 
 #스포츠 뉴스
-http://localhost[PORT]/api/sports
+GET http://localhost[PORT]/api/sports
 ```
 
 ## How to Use Docker Image
@@ -100,6 +106,8 @@ networks:
 ## Screen
 ### News: Main
 ![ex_screenshot](./img/main.png)
+### REST API
+![ex_screenshot](./img/api.png)
 ### News: IT
 ![ex_screenshot](./img/it.png)
 ### News: ECO
